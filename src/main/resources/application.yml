@@ -1,0 +1,25 @@
+server:
+  port: 7002
+spring:
+  application:
+    name: spring-boot-kafka
+  mandatory-file-encoding: UTF-8
+
+  kafka:
+    bootstrap-servers:
+      192.168.163.110:9092
+  cloud:
+    stream:
+      kafka:
+        binder:
+          zk-nodes: 192.168.163.110:2181
+          auto-create-topics: true
+      bindings:
+        helloworld-out:
+          destination: helloworld
+          content-type: text/plain
+          group: hello_01
+        helloworld-input:
+          destination: helloworld
+          content-type: text/plain
+          group: hello_01
